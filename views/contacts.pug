@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .bg-light
+    .container-fluid
+      .row.justify-content-center
+        .col-md-10
+          .card.mt-5
+            .card-header.bg-primary.text-white
+              h1.text-center.mb-0 All Contacts
+            .card-body
+              table.table.table-hover
+                thead
+                  tr
+                    th First Name
+                    th Last Name
+                    th Email Address
+                    th Actions
+                tbody
+                  each contact in contacts
+                    tr
+                      td= contact.firstName
+                      td= contact.lastName
+                      td= contact.email
+                      td.text-center
+                        a(href=`/contacts/${contact.id}`, class='btn btn-primary btn-sm mb-1') View
+                        a(href=`/contacts/${contact.id}/edit`, class='btn btn-warning btn-sm mb-1') Edit
+                        form(method='POST', action=`/contacts/${contact.id}?_method=DELETE`, style='display: inline;')
+                          button(type='submit', class='btn btn-danger btn-sm mb-1') Delete
+              a.btn.btn-success.btn-block(href='/contacts/new') Add New Contact

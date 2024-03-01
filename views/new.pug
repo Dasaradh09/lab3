@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .container
+    .row.justify-content-center
+      .col-md-8
+        .card.mt-5
+          .card-header.bg-primary.text-white
+            h1.text-center.mb-0 Add New Contact
+          .card-body
+            form(method='POST', action='/contacts')
+              .form-group
+                label(for='firstName') First Name
+                input.form-control(type='text', name='firstName', required)
+              .form-group
+                label(for='lastName') Last Name
+                input.form-control(type='text', name='lastName', required)
+              .form-group
+                label(for='email') Email Address
+                input.form-control(type='email', name='email')
+              .form-group
+                label(for='notes') Notes
+                textarea.form-control(name='notes')
+              button.btn.btn-primary.btn-block(type='submit') Add Contact

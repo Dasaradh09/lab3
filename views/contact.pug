@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .container-fluid
+    .row.justify-content-center
+      .col-md-8
+        .card.mt-5
+          .card-header.bg-primary.text-white
+            h1.text-center.mb-0 Contact Details
+          .card-body
+            .contact-details
+              h2.text-center.mb-4 Contact Information
+              table.table.table-bordered.table-hover
+                thead
+                  tr
+                    th Email
+                    th Notes
+                    th Created
+                    th Last Edited
+                tbody
+                  tr
+                    td= contact.email
+                    td= contact.notes ? contact.notes : 'No notes available'
+                    td= contact.createdFormatted
+                    td= contact.lastEditedFormatted
+            .contact-actions.text-center.mt-4
+              a.btn.btn-warning(href=`/contacts/${contact.id}/edit`) Edit Contact
+              form.d-inline-block(method='POST', action=`/contacts/${contact.id}?_method=DELETE`)
+                button.btn.btn-danger.ml-2(type='submit') Delete Contact
+              a.btn.btn-secondary.ml-2(href='/contacts') Back to Contacts

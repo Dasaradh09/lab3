@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .container
+    .row.justify-content-center
+      .col-md-6
+        .card.mt-5(style="background-color: #3FA6A6;")
+          .card-body
+            h1.text-center.mb-4(style="color: #CAE8E8;") Edit Contact
+            form(method='POST', action=`/contacts/${contact.id}?_method=PUT`)
+              .form-group
+                label(for='firstName', style="color: #1787b5;") First Name
+                input.form-control(type='text', name='firstName', value=contact.firstName, required)
+              .form-group
+                label(for='lastName', style="color: #333;") Last Name
+                input.form-control(type='text', name='lastName', value=contact.lastName, required)
+              .form-group
+                label(for='email', style="color: #333;") Email Address
+                input.form-control(type='email', name='email', value=contact.email)
+              .form-group
+                label(for='notes', style="color: #333;") Notes
+                textarea.form-control(name='notes')= contact.notes
+              button.btn.btn-outline-dark(type="submit") Save
+            br
+            //- Add a button that acts as a link to the contacts page
+            a.btn.btn-secondary.btn-block(href='/contacts', style="color: #fff; background-color: #6c757d;") Back to Contacts
