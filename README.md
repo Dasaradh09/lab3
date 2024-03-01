@@ -3,7 +3,7 @@ Name: Dasaradh Balusu
 Email: dbalusu@hawk.iit.edu
 Course: ITMD 542
 Assignment: Lab 3
-GitHub URL: https://github.com/Dasaradh09/Fullstack-lab2
+GitHub URL: https://github.com/Dasaradh09/lab3.git
 Project Overview:
 
 Focus: Full-stack development
